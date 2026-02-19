@@ -1,13 +1,16 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net;
+using System.Security.Policy;
 using System.Windows.Forms;
 
 namespace Navegador
 {
     public partial class Form1 : Form
     {
+        List<Direccion> historial = new List<Direccion>();
         string rutaHistorial = "historial.txt";
 
         public Form1()
@@ -15,13 +18,28 @@ namespace Navegador
             InitializeComponent();
         }
 
+        private void Leer()
+        {
+            string nombreArchivo = @"historial.txt";
+            FileStream stream = new FileStream(nombreArchivo, FileMode.Open, FileAccess.Read);
+            StreamReader reader = new StreamReader(stream);
+            while (reader.Peek() > -1)
+            {
+                string linea = reader.ReadLine();
+                comboBox1.Items.Add(linea);
+            }
+            reader.Close();
+        }
+
         private void Form1_Load(object sender, EventArgs e)
         {
             webView21.Source = new Uri("https://www.google.com");
             CargarHistorial();
+            Leer();
         }
         private void button1_Click(object sender, EventArgs e)
         {
+
             Navegar();
         }
         private void Navegar()
@@ -40,13 +58,31 @@ namespace Navegador
             else
             {
                 if (!texto.StartsWith("http://") && !texto.StartsWith("https://"))
-                {
                     texto = "https://" + texto;
-                }
+
                 urlFinal = texto;
             }
+
             webView21.Source = new Uri(urlFinal);
 
+            var existente = historial.FirstOrDefault(d => d.Url == urlFinal);
+
+            if (existente != null)
+            {
+                existente.Veces++;
+                existente.FechaAccesso = DateTime.Now;
+            }
+            else
+            {
+                Direccion direccion = new Direccion
+                {
+                    Url = urlFinal,
+                    Veces = 1,
+                    FechaAccesso = DateTime.Now
+                };
+
+                historial.Add(direccion);
+            }
             GuardarHistorial(urlFinal);
 
             if (!comboBox1.Items.Contains(urlFinal))
@@ -55,6 +91,7 @@ namespace Navegador
             while (comboBox1.Items.Count > 10)
                 comboBox1.Items.RemoveAt(10);
         }
+
 
         private void comboBox1_KeyDown(object sender, KeyEventArgs e)
         {
@@ -83,6 +120,17 @@ namespace Navegador
         }
         private void GuardarHistorial(string url)
         {
+
+            FileStream stream = new FileStream("historial.txt", FileMode.Append, FileAccess.Write);
+            StreamWriter writer = new StreamWriter(stream);
+            foreach (var direccion in historial)
+            {
+                writer.WriteLine(direccion.Url);
+                writer.WriteLine(direccion.Veces);
+                writer.WriteLine(direccion.FechaAccesso);
+            }
+
+            writer.Close();
             File.AppendAllText(rutaHistorial, url + Environment.NewLine);
         }
 
