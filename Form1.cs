@@ -153,5 +153,11 @@ namespace Navegador
             foreach (string url in ultimas)
                 comboBox1.Items.Add(url);
         }
+
+        private void historialToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form2 form2 = new Form2();
+            form2.ShowDialog();
+        }
     }
 }
