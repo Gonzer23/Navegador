@@ -136,5 +136,7 @@ namespace LIstas_Dinamicas_de_Objetos
                 MessageBox.Show("Persona no encontrada");
             }
         }
+
+
     }
 }
