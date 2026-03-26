@@ -41,7 +41,6 @@
             this.richTextBox1.Size = new System.Drawing.Size(196, 152);
             this.richTextBox1.TabIndex = 0;
             this.richTextBox1.Text = "";
-            this.richTextBox1.TextChanged += new System.EventHandler(this.richTextBox1_TextChanged);
             // 
             // button1
             // 
@@ -82,6 +81,7 @@
             this.MinimizeBox = false;
             this.Name = "Form2";
             this.Text = "Historial";
+            this.Load += new System.EventHandler(this.Form2_Load_1);
             this.ResumeLayout(false);
             this.PerformLayout();
 

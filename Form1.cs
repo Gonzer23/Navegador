@@ -160,5 +160,10 @@ namespace Navegador
             form2.ShowDialog();
             this.Close();
         }
+
+        private void comboBox1_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }

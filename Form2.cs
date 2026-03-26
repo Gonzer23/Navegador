@@ -19,10 +19,6 @@ namespace Navegador
             InitializeComponent();
         }
 
-        private void Form2_Load(object sender, EventArgs e)
-        {
-            CargarHistorial();
-        }
         private void CargarHistorial()
         {
             string nombreArchivo = @"historial.txt";
@@ -63,9 +59,9 @@ namespace Navegador
             CargarHistorial();
         }
 
-        private void richTextBox1_TextChanged(object sender, EventArgs e)
+        private void Form2_Load_1(object sender, EventArgs e)
         {
-
+            CargarHistorial();
         }
     }
 }

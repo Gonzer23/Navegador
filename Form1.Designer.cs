@@ -37,10 +37,10 @@
             this.homeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.anteriorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.siguienteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.historialToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.webView21 = new Microsoft.Web.WebView2.WinForms.WebView2();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.historialToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.webView21)).BeginInit();
             this.SuspendLayout();
@@ -88,23 +88,30 @@
             // homeToolStripMenuItem
             // 
             this.homeToolStripMenuItem.Name = "homeToolStripMenuItem";
-            this.homeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.homeToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
             this.homeToolStripMenuItem.Text = "Home";
             this.homeToolStripMenuItem.Click += new System.EventHandler(this.homeToolStripMenuItem_Click_1);
             // 
             // anteriorToolStripMenuItem
             // 
             this.anteriorToolStripMenuItem.Name = "anteriorToolStripMenuItem";
-            this.anteriorToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.anteriorToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
             this.anteriorToolStripMenuItem.Text = "Anterior";
             this.anteriorToolStripMenuItem.Click += new System.EventHandler(this.anteriorToolStripMenuItem_Click);
             // 
             // siguienteToolStripMenuItem
             // 
             this.siguienteToolStripMenuItem.Name = "siguienteToolStripMenuItem";
-            this.siguienteToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.siguienteToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
             this.siguienteToolStripMenuItem.Text = "Siguiente";
             this.siguienteToolStripMenuItem.Click += new System.EventHandler(this.siguienteToolStripMenuItem_Click);
+            // 
+            // historialToolStripMenuItem
+            // 
+            this.historialToolStripMenuItem.Name = "historialToolStripMenuItem";
+            this.historialToolStripMenuItem.Size = new System.Drawing.Size(63, 20);
+            this.historialToolStripMenuItem.Text = "Historial";
+            this.historialToolStripMenuItem.Click += new System.EventHandler(this.historialToolStripMenuItem_Click);
             // 
             // comboBox1
             // 
@@ -117,6 +124,7 @@
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(502, 21);
             this.comboBox1.TabIndex = 5;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged_1);
             // 
             // webView21
             // 
@@ -136,13 +144,6 @@
             // 
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
-            // 
-            // historialToolStripMenuItem
-            // 
-            this.historialToolStripMenuItem.Name = "historialToolStripMenuItem";
-            this.historialToolStripMenuItem.Size = new System.Drawing.Size(63, 20);
-            this.historialToolStripMenuItem.Text = "Historial";
-            this.historialToolStripMenuItem.Click += new System.EventHandler(this.historialToolStripMenuItem_Click);
             // 
             // Form1
             // 
